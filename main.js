@@ -8,17 +8,15 @@ const button = document.getElementById("search-btn");
 const city_input = document.getElementById("city-input");
 
 button.addEventListener("click", function() {
-    const city = city_input.value.trim();  // Get the city from input and trim any whitespace
+    const city = city_input.value.trim();  
 
     if (city === "") {
         alert("Please enter a city name");
         return;
     }
 
-    // Replace spaces with %20 for URL encoding
     const encodedCity = encodeURIComponent(city);
 
-    // Dynamic URL based on the city input
     const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodedCity}?key=GH3RQ7GYCDLTA9BUS275CU8SF`;
 
     fetch(apiUrl, { mode: 'cors' })
